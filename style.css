@@ -1,0 +1,193 @@
+:root {
+    --darkblue: #002299;
+    --white: #ffffff;
+    --silver: #c0c0c0;
+    --hot-pink: #ff1493;
+    --accent: #ff6600;
+    --accent-2: #ffd9b3;
+    --lime: #99ff33;
+    --page: #ffffff;
+}
+ 
+/* Base styles (mobile first)*/
+body {
+    margin: 0;
+    padding: 0.5rem;
+    font-family: Verdana, Tahoma, "Comic Sans MS", sans-serif;
+    font-size: 14px;
+    color: var(--darkblue);
+    background-color: rgb(150, 202, 220);
+    /* small checkerboard background look */
+    background-image:
+        linear-gradient(45deg, #b3d9ff 25%, transparent 25%, transparent 75%, #b3d9ff 75%),
+        linear-gradient(45deg, #b3d9ff 25%, transparent 25%, transparent 75%, #b3d9ff 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+ 
+    /* Grid: overall page layout (header, main, footer stacked) */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+ 
+/*   Header  */
+header {
+    color: var(--white);
+    text-align: center;
+    background: linear-gradient(to bottom, #3399ff 0%, #0033cc 50%, #002299 51%, #0044ff 100%);
+    padding: 1rem;
+    border: 3px outset var(--silver);
+    border-radius: 8px;
+}
+ 
+header h1 {
+    font-family: "Comic Sans MS", "Arial Black", cursive, sans-serif;
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: 2px 2px 0 #000, 0 0 10px var(--hot-pink);
+    letter-spacing: 2px;
+}
+ 
+/*   Navigation (Flexbox)   */
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+}
+ 
+nav a {
+    display: block;
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #000;
+    background: linear-gradient(to bottom, #ffb366 0%, var(--accent) 50%, #cc5200 51%, #ff8533 100%);
+    border: 2px outset #ffd9b3;
+    border-radius: 20px; /* glossy pill button */
+}
+ 
+nav a:hover {
+    background: linear-gradient(to bottom, #ccff66, var(--lime));
+    color: #003300;
+    text-shadow: none;
+    border-style: inset;
+}
+ 
+/*  Card row (Flexbox)     */
+.card-row {
+    display: flex;
+    flex-direction: column; /* mobile: cards stacked */
+    gap: 0.75rem;
+}
+ 
+section {
+    flex: 1;
+    background: var(--page);
+    padding: 1rem;
+    border: 3px ridge var(--silver);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+}
+ 
+h2 {
+    margin-top: 0;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: var(--hot-pink);
+    text-shadow: 1px 1px 0 var(--accent-2);
+    border-bottom: 3px dotted var(--accent);
+    padding-bottom: 0.25rem;
+}
+ 
+/*  Links  */
+a {
+    color: deeppink;
+}
+ 
+a:visited {
+    color: #551a8b;
+}
+ 
+a:hover {
+    color: var(--hot-pink);
+    text-decoration: underline wavy;
+}
+ 
+/*   Art images  */
+img {
+    max-width: 100%;
+    height: auto;
+    border: 4px groove var(--silver);
+    padding: 2px;
+    background: #fff;
+}
+ 
+/* Lists */
+ul {
+    list-style: square;
+}
+ 
+li::marker {
+    color: var(--accent);
+}
+ 
+/*  Footer  */
+footer {
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 12px;
+    color: #fff;
+    background: linear-gradient(to bottom, #282E9C, #222);
+    border: 2px inset var(--silver);
+}
+ 
+footer::before {
+    content: "You are art visitor #000142 \2605  Best viewed in THIS Internet Explorer 6";
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--lime);
+    font-family: "Courier New", monospace;
+}
+ 
+/* Fun extras */
+.blink {
+    animation: blink 1s steps(2, start) infinite;
+    font-weight: bold;
+    color: red;
+}
+ 
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+ 
+.new-badge::after {
+    content: " NEW!";
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #fff;
+    background: red;
+    padding: 1px 4px;
+    margin-left: 4px;
+    animation: blink 1s steps(2, start) infinite;
+}
+/*  Tablet/Desktop  */
+@media (min-width: 768px) {
+    body {
+        padding: 1rem 2rem;
+        font-size: 16px;
+    }
+ 
+    header h1 {
+        font-size: 3rem;
+    }
+ 
+    .card-row {
+        flex-direction: row; /* cards sit side by side */
+    }
+}
+
